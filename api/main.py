@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import uvicorn as uvicorn
-from openf1_client import OpenF1Client
+
 
 
 # Alright so this is just a simple backend for an AI F1 telemetry app, 
