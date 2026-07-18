@@ -9,4 +9,3 @@ from openf1_client import OpenF1Client
 
 API_URL = "" | ''   # Placeholder for the OpenF1 API URL, you can use a .env file to store the actual API url for security reasons and link the env file.
 
-
