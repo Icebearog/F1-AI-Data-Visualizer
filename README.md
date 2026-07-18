@@ -4,9 +4,9 @@ This is a fun project that's part of my portfolio, it combines one of my interes
 
 
 # The Backend 
-The backend is built on FastAPI (https://fastapi.tiangolo.com/), a fast, simple to work with framework that I find perfect for this project, alongside Uvicorn, which is amazingly optimized for FastAPI.
+The backend is built on FastAPI (https://fastapi.tiangolo.com/), a fast, simple to work with framework that I find perfect for this project, alongside Uvicorn (https://uvicorn.dev/), which is amazingly optimized for FastAPI.
 
-For this project, OpenF1 is used for pulling race data that can be then processed by Gemnini or Claude for data visualization in the frontend.
+For this project, OpenF1 (https://openf1.org/) is used for pulling race data that can be then processed by Gemnini or Claude for data visualization in the frontend.
 
 
 # The Frontend
