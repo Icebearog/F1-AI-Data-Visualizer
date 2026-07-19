@@ -1,4 +1,5 @@
 #import os
+#import genai
 from typing import List
 from fastapi import FastAPI, Query, HTTPexceptions
 from fastapi.middleware.cors import CORSMiddleware 
@@ -6,6 +7,7 @@ import httpx
 import uvicorn as uvicorn
 from openf1_client import OpenF1Client
 from dotenv import load_dotenv
+
 
 
 # Alright so this is just a simple backend for an AI F1 telemetry app, 
@@ -25,3 +27,5 @@ app.add_middleware(
 )
 
 OPENF1_BASE_URL = "https://api.openf1.org/v1"  # Base URL for the OPENF1 API
+
+#remember to add rate limit to GenAI api key
