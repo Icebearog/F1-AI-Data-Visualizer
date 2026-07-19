@@ -1,12 +1,12 @@
-#import os
-#import genai
+import os
+from dotenv import load_dotenv
 from typing import List
-from fastapi import FastAPI, Query, HTTPexceptions
+from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware 
 import httpx
-import uvicorn as uvicorn
-from openf1_client import OpenF1Client
-from dotenv import load_dotenv
+#import pandas as pd
+from urllib.request import urlopen
+import json
 
 
 
@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 # The goal of this tool is to show data visualization and analysis using AI because AI is the future and it's best to stay up to date with the latest technology.
 
 
-load_dotenv() # Loads the environment variables from the .env file
+load_dotenv() 
 app = FastAPI(title="AI F1 Telemetry API", description="An API for fetching F1 telemetry data from OPENF1 and sending it to the frontend for visualization.", version="1.0.0")
 
 app.add_middleware(
@@ -26,6 +26,18 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-OPENF1_BASE_URL = "https://api.openf1.org/v1"  # Base URL for the OPENF1 API
+response = urlopen(os.getenv("OPENF1_BASE_URL"))
+data = json.loads(response.read().decode('utf-8'))
+print(data)
 
-#remember to add rate limit to GenAI api key
+
+app.get("/api/sessions/compare")
+async def compare_sessions(
+        session_key: int = Query(..., description="The session ID"),
+        drivers: List[int] = Query(..., description="List of driver numbers to compare")
+):
+    """
+    Fetches lap data from OpenF1 and structures it cleanly for frontend charting.
+    Ensures O(n) complexity during data processing.
+    """
+app.get("/")
